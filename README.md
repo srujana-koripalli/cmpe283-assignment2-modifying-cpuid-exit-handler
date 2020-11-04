@@ -30,21 +30,30 @@ Step 7: Execute the following commands sequentially one after the other
 Step 8: Modify the kernel code with the assignment functionality: ◦ 
 
 Step 9: After modifying the code both in cpuid.c and vmx.c do the following steps again 
-        ---> make oldconfig
+       
+         ---> make oldconfig
+        
         ---> make && make modules && make install && make modules-install 
+        
         ---> Reboot
 
 Step 9: Now to test this change to CPUID.c create an inner VM.
-        a) Use the following command to install KVM and supporting packages.	
+       
+       
+ a) Use the following command to install KVM and supporting packages.	
         ---> sudo apt-get install qemu-kvm libvirt-bin bridge-utils virt-manager
-        b) Verify KVM Installation using the following command. You should see an empty list of virtual machines. This indicates that everything is working correctly.
+ 
+ b) Verify KVM Installation using the following command. You should see an empty list of virtual machines. This indicates that everything is working correctly.
         ---> virsh -c qemu:///system list
-        c) Install Virt-Manager
+  
+  c) Install Virt-Manager
         ---> sudo apt-get install virt-manager
-        d) Install CPUID by using the following command
+   
+  d) Install CPUID by using the following command
         ---> sudo apt-get install cupid
         ---> CPUID gives a whole list of CPUID features of which the first one is the vendor string.
-        e) Run CPUID-l-0x4FFFFFFF
+        
+   e) Run CPUID-l-0x4FFFFFFF
         ---> It gives the information for eax,ebx,ecx values
         ---> Where it gives eax =total exits :  ebx =total cycle count of hi bit value: ecx =total cycle count of low bit value
  
