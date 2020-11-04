@@ -5922,8 +5922,8 @@ void dump_vmcs(void)
 		       vmcs_read16(VIRTUAL_PROCESSOR_ID));
 }
 
-_Atomic (uint32_t) exit_counts = 0;
-_Atomic (uint64_t) cpu_cycles_in_exit = 0;
+_Atomic (unsigned long int) exit_counts = 0;
+_Atomic (unsigned long long int) cpu_cycles_in_exit = 0;
 
 /*
  * The guest has exited.  See if we can fix it or if we need userspace

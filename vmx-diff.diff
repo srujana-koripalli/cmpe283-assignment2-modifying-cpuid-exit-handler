@@ -1,21 +1,15 @@
-commit ae0477016ba0c270b677961fc031dc61813aba57
-Author: shtomar-sjsu <shivam.tomar@sjsu.edu>
-Date:   Tue Nov 3 03:02:47 2020 -0800
-
-    Updated vmx.c file with the following changes: 1). Added a counter to count all exits 2). Added a counter to add up CPU cycles spend in exit processing and write the data in eax, ebx and ecx registers.
-
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
 old mode 100644
 new mode 100755
-index ab6d2d1525ec..6b985041cb28
+index ab6d2d1525ec..65e9c0cbf709
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
 @@ -5922,6 +5922,9 @@ void dump_vmcs(void)
  		       vmcs_read16(VIRTUAL_PROCESSOR_ID));
  }
  
-+_Atomic (uint32_t) exit_counts = 0;
-+_Atomic (uint64_t) cpu_cycles_in_exit = 0;
++_Atomic (unsigned long int) exit_counts = 0;
++_Atomic (unsigned long long int) cpu_cycles_in_exit = 0;
 +
  /*
   * The guest has exited.  See if we can fix it or if we need userspace
