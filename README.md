@@ -41,27 +41,32 @@ Step 9: After modifying the code both in cpuid.c and vmx.c do the following step
 Step 9: Now to test this change to CPUID.c create an inner VM.
        
        
- a) Use the following command to install KVM and supporting packages.	
+ Step 10: Use the following command to install KVM and supporting packages.	
         
         sudo apt-get install qemu-kvm libvirt-bin bridge-utils virt-manager
  
- b) Verify KVM Installation using the following command. You should see an empty list of virtual machines. This indicates that everything is working correctly.
+Step 11: Verify KVM Installation using the following command. You should see an empty list of virtual machines. This indicates that everything is working correctly.
        
         virsh -c qemu:///system list
   
-  c) Install Virt-Manager
+Step 12: Install Virt-Manager
         
         sudo apt-get install virt-manager
+        
+Step 13 : Open Virtual-Manager and start Virtual Machine. Now try dmesg command in the host system’s terminal.
+ 
+        dmesg 
    
-  d) Install CPUID by using the following command
+Step 15: Install CPUID by using the following command
         
         sudo apt-get install cupid
         
-   e) CPUID gives a  whole list of CPUID features of which the first one is the vendor string.
+ Step 16:CPUID gives a  whole list of CPUID features of which the first one is the vendor string.
    
-   f) Run CPUID-l-0x4FFFFFFF
-   
-        It gives the information for eax,ebx,ecx values
+         Run CPUID-l-0x4FFFFFFF  
+    
+ Ste 17 : It gives the information for eax,ebx,ecx values
+        
         Where it gives eax =total exits :  ebx =total cycle count of hi bit value: ecx =total cycle count of low bit value
  
  
