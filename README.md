@@ -1,6 +1,3 @@
-# cmpe283-assignment2-modifying-cpuid-exit-handler
-
-# cmpe283-assignment2-modifying-cpuid-exit-handler
 
 ** Steps Used To Build And Complete This Assignment **
 
@@ -74,8 +71,20 @@ Step 15: Install CPUID by using the following command
  
 
 
+===============================================================================================
+
+Question : Does the number of exits increase at a stable rate ? Or are there more exits performed during certain VM operations?
+Answer:   Number of exit will not be stable, it will increase as any interpret will occur. There will be more exit as per the operation mode or excecution.
 
 
+===============================================================================================
+1) Shivam Tomar(SJSU ID: 015218203) 
+
+Build the kernal, modified cpuid.c & vmx.c files, Added nested virtualisation, Tested output
+
+2) Srujana Koripalli(SJSU ID: 013859651)
+
+Reasearched & build the kernal, helped with vmx.c file and output, added nested virtualisation.
 
 
 
