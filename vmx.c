@@ -5924,6 +5924,9 @@ void dump_vmcs(void)
 
 _Atomic (unsigned long int) exit_counts = 0;
 _Atomic (unsigned long long int) cpu_cycles_in_exit = 0;
+long cpu_cycles_count_start = 0;
+long cpu_cycles_count_end = 0;
+int response = 0;
 
 /*
  * The guest has exited.  See if we can fix it or if we need userspace
@@ -6067,9 +6070,9 @@ static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 		goto unexpected_vmexit;
 
 	++exit_counts;
-    long cpu_cycles_count_start = rdtsc();
-	int response = kvm_vmx_exit_handlers[exit_reason](vcpu);
-	long cpu_cycles_count_end = rdtsc();
+    cpu_cycles_count_start = rdtsc();
+	response = kvm_vmx_exit_handlers[exit_reason](vcpu);
+	cpu_cycles_count_end = rdtsc();
 	cpu_cycles_in_exit += (cpu_cycles_count_end - cpu_cycles_count_start);
     if(exit_reason == 10){ //10 is exit reason for CPUID.
     	kvm_rax_write(vcpu, exit_counts);
