@@ -23,7 +23,7 @@ Step 6: Print all the system information in the following order: Kernel name, ne
 
 Step 7: Execute the following commands sequentially one after the other
        
-         cp /boot/config-4.15.0-112-generic ./.config (substitute your version obtained from the previous step here though)
+         cp /boot/config-5.9.0-generic ./.config 
          make oldconfig
          make && make modules && make install && make modules-install 
          Reboot
