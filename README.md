@@ -73,8 +73,8 @@ Step 15: Install CPUID by using the following command
 
 ===============================================================================================
 
-Question : Does the number of exits increase at a stable rate ? Or are there more exits performed during certain VM operations?
-Answer:   Number of exit will not be stable, it will increase as any interpret will occur. There will be more exit as per the operation mode or excecution.
+Question : Does the number of exits increase at a stable rate ? Or are there more exits performed during certain VM operations? How may exit does a full VM boot entail ?
+Answer:   Number of exit will not be stable, it will increase as any interpret will occur. There will be more exit as per the operation mode or excecution. Around 153263 exits.
 
 
 ===============================================================================================
